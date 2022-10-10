@@ -19,25 +19,45 @@ public class Investigador {
             System.out.println("No se pudo agregar investigador al proyecto.(Maximo excedido)");
     }
     
-    public Subsidio[] getSubsidios(){
-        return this.subsidios;
-    }
-    
-    public int getCantSubsidios(){
-        return this.getSubsidios().length;
-    }
-    
+  
     public boolean hayLugar(){
         return this.getCantSubsidios() < 5;
     }
+    
+    public double getMontoSubsidios(){
+        double auxTotal = 0;
+        for (int i = 0; i < this.getCantSubsidios(); i ++){
+            if (this.getSubsidios()[i].isOtorgado())
+                auxTotal = auxTotal + this.getSubsidios()[i].getMonto();
+        }
+        return auxTotal;
+    }
 
-    public String getNombre() {
+    public String toString(){
+        String texto;
+        texto = this.getNombre()+ "  " + this.getEspecialidad() + "  " + this.getMontoSubsidios();
+        return texto;
+    }
+    
+    
+    //getters & setters
+    public int getCategoria() {
+        return categoria;
+    }
+    public String getEspecialidad() {
+        return especialidad;
+    }
+        public String getNombre() {
         return nombre;
     }
     
     public void setSubsidios(Subsidio[] subsidios){
         this.subsidios = subsidios;
     }
-    
-    
+    public int getCantSubsidios(){
+        return this.getSubsidios().length;
+    }
+    public Subsidio[] getSubsidios(){
+        return this.subsidios;
+    }
 }

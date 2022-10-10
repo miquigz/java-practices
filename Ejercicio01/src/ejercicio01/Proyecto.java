@@ -32,14 +32,10 @@ public class Proyecto {
     }
     
     public double dineroTotalOtorgado(){
-        int i, k; double montoTotal = 0;
+        int i;    double montoTotal = 0;
         //Recorremos cantidad de investigadores del proyecto
         for (i=0; i < this.getCantInvestigadores(); i++){
-            //Recorremos los subsidios del investigador actual.
-            for (k = 0; k < this.getInvestigadores()[i].getCantSubsidios(); i++)
-                //Verificamos si fue otorgado dicho subsidio, de ser asi: sumamos monto.
-                if (this.getInvestigadores()[i].getSubsidios()[k].isOtorgado())
-                    montoTotal = this.getInvestigadores()[i].getSubsidios()[k].getMonto();
+            montoTotal = montoTotal + this.getInvestigadores()[i].getMontoSubsidios();
         }
         System.out.println("Monto total:" + montoTotal);
         return montoTotal;
@@ -62,6 +58,40 @@ public class Proyecto {
         }else
             System.out.println("Investigador no encontrado");
     }
+        
+    public String toString(){
+        String text = this.getNombre() + this.getCod() + this.getDirector() + this.dineroTotalOtorgado();
+        for (int i = 0; i < this.getCantInvestigadores(); i++){
+            text = text + "\n" + this.getInvestigadores()[i].toString();
+        }
+        return text;
+    }
     
-    
+    //getters
+    public String getNombre() {
+        return nombre;
+    }
+    public int getCod() {
+        return cod;
+    }
+    public String getDirector() {
+        return director;
+    }
 }
+
+//------------RAW CONTENT (ya Factorizado)-------------
+/*
+    public double dineroTotalOtorgado(){
+        int i, k; double montoTotal = 0;
+        //Recorremos cantidad de investigadores del proyecto
+        for (i=0; i < this.getCantInvestigadores(); i++){
+            //Recorremos los subsidios del investigador actual.
+            for (k = 0; k < this.getInvestigadores()[i].getCantSubsidios(); i++)
+                //Verificamos si fue otorgado dicho subsidio, de ser asi: sumamos monto.
+                if (this.getInvestigadores()[i].getSubsidios()[k].isOtorgado())
+                    montoTotal = montoTotal + this.getInvestigadores()[i].getSubsidios()[k].getMonto();
+        }
+        System.out.println("Monto total:" + montoTotal);
+        return montoTotal;
+    }
+*/

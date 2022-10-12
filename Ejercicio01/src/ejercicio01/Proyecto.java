@@ -11,7 +11,7 @@ public class Proyecto {
         this.cod = cod;
         this.director = director;
     }
-    
+     
     public void agregarInvestigador(Investigador inve){
         if (this.hayLugar()){
             this.investigadores[this.getCantInvestigadores() + 1] = inve;

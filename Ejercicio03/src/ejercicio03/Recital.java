@@ -11,7 +11,6 @@ public abstract class Recital {
         this.dimL = 0;
     }
     
-    
     //i)
     public void agregarTema(String nombre){
         if (hayLugar()){

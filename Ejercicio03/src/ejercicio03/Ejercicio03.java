@@ -7,7 +7,7 @@ public class Ejercicio03 {
        Gira eventoGira = new Gira("To world", 4, "artistaNombre", 14);
        eventoOca.agregarTema("tema1");
        eventoGira.agregarTema("tema12323");
-       Fecha fe = new Fecha("la plata", "Miercoles");
+       Fecha fe = new Fecha("La Plata", "Miercoles");
        eventoGira.agregarFecha(fe);
        
        eventoOca.actuar();

@@ -30,9 +30,8 @@ public class Gira extends Recital {
         return this.getDimL() < this.getFechas().length;
     }
     public void actuar(){
-        System.out.println("EldimL es:" + this.getDimLFechas());
         if (null != this.getFechas()[this.getActual()]){
-            System.out.println("Buenas noches" + this.getFechas()[this.getActual()].getCiudad() + "\n");
+            System.out.println("Buenas noches " + this.getFechas()[this.getActual()].getCiudad() + "\n");
         }
         super.actuar();//Imprime en consola temas
         this.setActual(this.getActual() + 1);
